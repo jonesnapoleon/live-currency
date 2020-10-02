@@ -11,7 +11,9 @@ import {
 
 export default ({ currency }) => {
   const { chosenCurrency, price } = useContext(PriceContext);
-  const { rates } = useContext(CurrencyContext);
+  const { rates, listedCurrency, setListedCurrency } = useContext(
+    CurrencyContext
+  );
   const country = getCountry(currency);
   const conversionValue = useMemo(
     () => getConversionValue(rates, currency, chosenCurrency.value),
@@ -23,7 +25,8 @@ export default ({ currency }) => {
   );
 
   const handleDelete = () => {
-    console.log(currency);
+    const listNow = listedCurrency.filter((cur) => cur !== currency);
+    setListedCurrency(listNow);
   };
 
   return (
@@ -42,7 +45,11 @@ export default ({ currency }) => {
         </div>
       </section>
       <section className="col-2">
-        <button type="button" className="cross-button" onClick={handleDelete}>
+        <button
+          type="button"
+          className="cross-button remove"
+          onClick={handleDelete}
+        >
           <span className="close" style={{ color: "var(--primary-color)" }}>
             <i className="fas fa-times"></i>
           </span>

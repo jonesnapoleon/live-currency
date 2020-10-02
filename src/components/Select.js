@@ -7,9 +7,6 @@ const FormSelect = ({
   defaultValue,
   extraClassName,
 }) => {
-  // React.useEffect(() => {
-  //   console.log(data);
-  // }, [data]);
   return (
     <div className={`form-area ${extraClassName ?? ""} ${data.errorClassName}`}>
       <select value={data.value} onChange={data.onChange}>

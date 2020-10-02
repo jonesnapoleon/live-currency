@@ -39,3 +39,10 @@ select {
   outline: none;
   color: var(--common-background-color);
 }
+
+.remove {
+  position: relative;
+  right: 0;
+  top: 0;
+  transform: none;
+}

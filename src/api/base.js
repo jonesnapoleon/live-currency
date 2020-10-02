@@ -10,5 +10,3 @@ export const fetchUrl = async (
     return json;
   } catch (error) {}
 };
-
-// const fetchData = async () => {};

@@ -31,18 +31,19 @@ export const getConversionValue = (data, currencyTarget, currencyBase) => {
 };
 
 export const getConvertedPrice = (conversionValue, price) => {
-  if (!price.isSubmittable) return "-";
+  if (!price.isSubmittable || price.value === "") return "-";
   return (parseInt(price.value) * conversionValue).toFixed(2);
 };
 
 export const formatMoney = (string) => {
+  if (string.includes("-")) return string;
+  if (string === "") return "0.00";
   const text = String(string.trim()).split(".");
-  console.log(text);
+
   let tempNumber = "";
-  for (let i = text[0].length - 1; i >= 0; i++) {
+  for (let i = text[0].length - 1; i >= 0; i--) {
     tempNumber += text[0][i];
-    if (tempNumber.length === 3) tempNumber += ",";
+    if ((text[0].length - i) % 3 === 0 && i !== 0) tempNumber += ",";
   }
-  console.log(tempNumber);
-  return tempNumber.reverse() + text[1];
+  return tempNumber.split("").reverse().join("") + "." + text[1];
 };

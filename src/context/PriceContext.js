@@ -7,7 +7,7 @@ export const PriceContext = createContext({});
 
 const htmlText = {
   priceErrorMessage: "Value invalid",
-  maxMillionError: "Value should not be above 10 million",
+  maxMillionError: "Value should be less than 7 character",
 };
 
 export const PriceProvider = ({ children }) => {
@@ -22,7 +22,7 @@ export const PriceProvider = ({ children }) => {
       message: htmlText.maxMillionError,
     },
   ];
-  const price = useValidationFormInput("10000", priceValidation);
+  const price = useValidationFormInput("10.00", priceValidation);
 
   return (
     <PriceContext.Provider value={{ price, chosenCurrency }}>

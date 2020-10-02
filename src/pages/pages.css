@@ -11,5 +11,11 @@
 
 #full-page {
   min-height: 100vh;
-  padding: 20px;
+}
+
+#header {
+  /* min-height: 20vh; */
+  padding: var(--universal-padding);
+  color: var(--common-background-color);
+  background-color: var(--primary-color);
 }

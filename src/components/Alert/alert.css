@@ -30,18 +30,9 @@
 .alert .icon {
   position: absolute;
   left: 0.5rem;
-  top: 22%;
-  font-size: 23px;
+  top: 27%;
+  font-size: calc(0.8 * var(--standard-font-size));
   padding: 0;
-}
-
-@media only screen and (max-width: 450px) {
-  .alert {
-    max-width: 70vw !important;
-  }
-  .alert .icon {
-    top: 20%;
-  }
 }
 
 .alert .message {
@@ -53,36 +44,40 @@
 .alert-error {
   background-color: #fdecea;
   color: rgb(97, 26, 21);
-  border-left: 8px solid #ff0202;
+  border-left: 0.8rem solid #ff0202;
 }
 .alert-error .icon,
 .alert-error .close {
   color: #ff0000;
+  opacity: 1 !important;
 }
-.alert-error .crossBtn:hover {
+.alert-error .cross-button:hover {
   background: #f0bbbb;
 }
 
 .alert-success {
   background-color: #edf7ed;
   color: rgb(30, 70, 32);
-  border-left: 8px solid #4caf50;
+  border-left: 0.8rem solid #4caf50;
 }
 .alert-success .icon,
 .alert-success .close {
   color: #4caf50;
+  opacity: 1 !important;
 }
 .alert-success .cross-button:hover {
   background: #c5e6c5;
+  color: #4caf50;
 }
 
 .cross-button {
+  opacity: 1 !important;
   cursor: pointer;
   padding: 0 0.5rem;
   height: 100%;
   position: absolute;
-  right: 0px;
-  top: 50%;
+  right: -10px;
+  top: 47%;
   transform: translateY(-50%);
   font-size: 22px;
   border: none;

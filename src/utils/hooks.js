@@ -3,9 +3,7 @@ import { BREAKPOINT_WIDTH, LATEST_CURRENCY_API_URL } from "./constant";
 
 export const useFormInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
-
   const handleChange = (e) => setValue(e.target.value);
-
   return { value, onChange: handleChange };
 };
 
@@ -18,16 +16,14 @@ export const useValidationFormInput = (
   const [message, setMessage] = useState("");
   const [isSubmittable, setIsSubmittable] = useState(false);
   const [errorClassName, setErrorClassName] = useState("");
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
   useEffect(() => {
-    constraints.forEach((constraint) => {
+    for (let constraint of constraints) {
       if (value !== "") {
         if (!constraint.check(value)) {
           setIsSubmittable(false);
           setMessage(constraint.message);
           setErrorClassName("form-error");
+          return;
         } else {
           setIsSubmittable(true);
           setMessage(defaultMessage);
@@ -35,7 +31,7 @@ export const useValidationFormInput = (
         }
       }
       if (value.length === 0) setMessage(defaultMessage);
-    });
+    }
   }, [
     value,
     constraints,
@@ -50,7 +46,6 @@ export const useValidationFormInput = (
   return {
     value,
     setValue,
-    onChange: handleChange,
     message,
     isSubmittable,
     errorClassName,

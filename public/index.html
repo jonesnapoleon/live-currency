@@ -9,6 +9,12 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab&display=swap"
       rel="stylesheet"
     />
@@ -17,5 +23,12 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="text/javascript">
+      window.addEventListener("load", () => {
+        const script = document.createElement("script");
+        script.src = "https://use.fontawesome.com/releases/v5.0.8/js/all.js";
+        document.body.appendChild(script);
+      });
+    </script>
   </body>
 </html>

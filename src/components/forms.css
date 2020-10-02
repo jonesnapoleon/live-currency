@@ -1,30 +1,21 @@
-.form-area .form-input::selection {
-  background-color: var(--selected-color);
+.form-error > .form-input,
+.form-error > .form-label,
+.form-error > .form-label-info {
+  color: var(--form-error-color) !important;
 }
 
 .form-area .form-input {
   height: 3rem;
-  border-color: var(--common-text-color);
+  border: 0;
   outline: none;
-  color: var(--common-text-color);
-  border-radius: var(--border-radius);
-  font-size: calc(1.2 * var(--standard-font-size));
-  /* line-height: 1.8px; */
-  background-color: var(--common-background-color);
+  color: inherit;
+  min-width: 8rem;
+  border-bottom: 2px solid var(--common-background-color);
+  /* border-radius: var(--border-radius); */
+  font-size: calc(1.5 * var(--standard-font-size));
+  background-color: inherit;
 }
-
-.form-area .form-input:active ~ .form-label,
-.form-area .form-input:focus ~ .form-label,
-.form-area .form-input:valid ~ .form-label {
-  top: 1rem;
-  left: 2rem;
-  color: var(--common-text-color);
-  /* padding-left: 2px;
-  padding-right: 2px; */
-  font-size: calc(0.8 * var(--standard-font-size));
-  background: var(--common-background-color);
-}
-
+/* 
 .form-area .form-label {
   position: absolute;
   top: 2.3rem;
@@ -34,22 +25,17 @@
   transition: 0.2s;
   color: var(--not-the-focus);
   user-select: none;
-}
+} */
 
 .form-message-wrapper {
-  margin: 0.4rem 0 0.4rem 0.4rem;
-  min-height: 3rem;
   font-size: calc(0.8 * var(--standard-font-size));
 }
 
-.form-label-info {
-  color: var(--not-the-focus);
-  font-weight: bold;
-  opacity: 0.8;
-  font-size: calc(0.85 * var(--standard-font-size));
-  /* user-select: none; */
-}
-
-.form-label-info::selection {
-  background-color: var(--selected-color);
+select {
+  border-radius: var(--border-radius);
+  padding: 0.7rem 1.4rem;
+  border-color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  outline: none;
+  color: var(--common-background-color);
 }

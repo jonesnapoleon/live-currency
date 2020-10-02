@@ -12,7 +12,7 @@ export const AlertProvider = ({ children }) => {
 
   const addAlert = (message, type) => {
     setAlert({ show: true, message, type });
-    setTimeout(() => setAlert({ show: false }), 3000);
+    setTimeout(() => setAlert({ show: false }), 300000);
   };
 
   const alertContextValue = {

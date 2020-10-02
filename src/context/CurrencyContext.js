@@ -5,18 +5,24 @@ export const CurrencyContext = createContext({});
 
 export const CurrencyProvider = ({ children }) => {
   const [rates, setRates] = useLocalStorage("rates", {});
+  const [listedCurrency, setListedCurrency] = useLocalStorage(
+    "listedCurrency",
+    []
+  );
+
   const response = useFetch();
   const alert = useContext(AlertContext);
 
   useEffect(() => {
+    response.error && alert.addAlert(String(response.error), "error");
+    response.data && setRates(response.data);
     console.log(response);
-  }, [response]);
-
-  response.error && alert.addAlert(String(response.error), "error");
-  response.data && setRates(JSON.stringify(response.data));
+  }, [alert, response, setRates]);
 
   return (
-    <CurrencyContext.Provider value={rates}>
+    <CurrencyContext.Provider
+      value={{ rates, listedCurrency, setListedCurrency }}
+    >
       {children}
     </CurrencyContext.Provider>
   );

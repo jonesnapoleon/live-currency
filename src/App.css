@@ -27,6 +27,11 @@ body,
   --form-error-color: #ff0202;
   --standard-font-size: 16px;
   --border-radius: 15px;
+  --universal-padding: 20px;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 h1,
@@ -42,12 +47,39 @@ h6 {
   margin-inline-end: 0px;
 }
 
-.form-error > .form-input,
-.form-error > .form-label,
-.form-error > .form-label-info {
-  color: var(--form-error-color) !important;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+/* .row > * {
+  flex: 1;
+} */
+.row.space-between {
+  justify-content: space-between;
 }
 
-.form-error > .form-input {
-  border-color: var(--form-error-color) !important;
+.text-right {
+  text-align: right;
+}
+.align-right {
+  float: right;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+button {
+  border-radius: var(--border-radius) !important;
+  padding: 0.9rem 2rem !important;
+  color: var(--common-background-color);
 }

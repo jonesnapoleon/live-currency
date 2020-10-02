@@ -9,18 +9,16 @@ export const CurrencyProvider = ({ children }) => {
     "listedCurrency",
     []
   );
-  // React.useState([]);
-  useEffect(() => {
-    console.log(listedCurrency);
-  }, [listedCurrency]);
 
   const response = useFetch();
   const alert = useContext(AlertContext);
 
   useEffect(() => {
     response.error && alert.addAlert(String(response.error), "error");
-    response.data && setRates(response.data);
-    console.log(response);
+    if (response.data) {
+      response.data.rates[response.data.base] = 1;
+      setRates(response.data.rates);
+    }
   }, [alert, response, setRates]);
 
   return (

@@ -29,7 +29,8 @@ export default ({ currencyKeys }) => {
     }
   };
 
-    <div style={{ padding: "20px" }}>
+  return (
+    <div style={{ padding: "var(--universal-padding)" }}>
       <div className="row space-between mt-2">
         <section style={{ flex: 1 }}>
           <Select

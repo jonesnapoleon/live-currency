@@ -6,7 +6,7 @@ import { isPriceValid, isMaxMillion } from "../utils/index";
 export const PriceContext = createContext({});
 
 const htmlText = {
-  priceErrorMessage: "Value should be above 0",
+  priceErrorMessage: "Value invalid",
   maxMillionError: "Value should not be above 10 million",
 };
 

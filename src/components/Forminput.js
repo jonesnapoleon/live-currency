@@ -21,7 +21,7 @@ export default ({ label, data, type, extraClassName }) => {
         }}
         className="form-input"
         value={data.value}
-        type={type}
+        type={type ?? "text"}
         inputMode={type === "number" ? "numeric" : "text"}
         onChange={handleMaxLength}
         placeholder={label}

@@ -20,7 +20,6 @@ export default ({ currencyKeys }) => {
         </section>
         <section style={{ flex: 2 }}>
           <Forminput
-            type="number"
             label={htmlText.writePrice}
             extraClassName="text-right align-right"
             data={price}

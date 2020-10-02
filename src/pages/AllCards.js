@@ -6,10 +6,10 @@ export default () => {
   const { listedCurrency } = useContext(CurrencyContext);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <>
       {listedCurrency.map((currency) => (
         <Card key={currency} currency={currency} />
       ))}
-    </div>
+    </>
   );
 };

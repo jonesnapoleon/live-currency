@@ -58,7 +58,15 @@ h6 {
 .row.space-between {
   justify-content: space-between;
 }
-
+.row .col-2,
+.row .col-4,
+.row .col-6,
+.row .col-8,
+.row .col-10,
+.row .col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
 .text-right {
   text-align: right;
 }

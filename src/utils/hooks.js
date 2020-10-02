@@ -68,10 +68,9 @@ export const useIsMobile = () => {
 };
 
 export const useLocalStorage = (key, defaultValue) => {
-  const [value, setValue] = useState(() => {
-    const storedValue = localStorage.getItem(key);
-    return storedValue === null ? defaultValue : JSON.parse(storedValue);
-  });
+  const [value, setValue] = useState(
+    JSON.parse(localStorage.getItem(key)) ?? defaultValue
+  );
   const setValueInLocalStorage = (newValue) => {
     setValue(newValue);
     localStorage.setItem(key, JSON.stringify(newValue));

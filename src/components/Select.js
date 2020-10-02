@@ -13,11 +13,16 @@ const FormSelect = ({
   return (
     <div className={`form-area ${extraClassName ?? ""} ${data.errorClassName}`}>
       <select value={data.value} onChange={data.onChange}>
-        {[defaultValue, ...optionList].map((item, idx) => (
-          <option key={idx} value={item} defaultValue={defaultValue}>
-            {item}
-          </option>
-        ))}
+        <option value={defaultValue} defaultValue={defaultValue}>
+          {defaultValue}
+        </option>
+        {optionList &&
+          optionList.length > 0 &&
+          optionList.sort().map((item, idx) => (
+            <option key={idx} value={item}>
+              {item}
+            </option>
+          ))}
       </select>
       <span className="form-select-label">{label}</span>
       <span className="form-label-info">

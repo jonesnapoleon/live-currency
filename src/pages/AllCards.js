@@ -8,9 +8,8 @@ export default () => {
   return (
     <div style={{ padding: "20px" }}>
       {listedCurrency.map((currency) => (
-        <>defgr</>
+        <Card key={currency} currency={currency} />
       ))}
-      {/* <Card key={currency} currency={currency} /> */}
     </div>
   );
 };

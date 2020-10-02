@@ -2,7 +2,7 @@ import React from "react";
 import "./forms.css";
 import { MAX_DIGIT_VALUE } from "../utils/constant";
 
-export default ({ label, data, extraClassName }) => {
+export default ({ label, data, type, extraClassName }) => {
   const handleMaxLength = (e) => {
     if (e.target.value.length > MAX_DIGIT_VALUE) return;
     data.setValue(e.target.value);
@@ -21,8 +21,8 @@ export default ({ label, data, extraClassName }) => {
         }}
         className="form-input"
         value={data.value}
-        type="number"
-        inputMode="numeric"
+        type={type}
+        inputMode={type === "number" ? "numeric" : "text"}
         onChange={handleMaxLength}
         placeholder={label}
       />

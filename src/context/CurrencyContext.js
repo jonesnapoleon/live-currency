@@ -9,6 +9,10 @@ export const CurrencyProvider = ({ children }) => {
     "listedCurrency",
     []
   );
+  // React.useState([]);
+  useEffect(() => {
+    console.log(listedCurrency);
+  }, [listedCurrency]);
 
   const response = useFetch();
   const alert = useContext(AlertContext);

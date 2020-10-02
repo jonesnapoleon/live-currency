@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+body,
+#root {
+  color: var(--common-text-color);
+  background: var(--common-background-color);
+  font-family: "Lato", sans-serif;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: var(--standard-font-size);
+}
+::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+:root {
+  --primary-color: #4c2a86;
+  --secondary-color: #06b3ba;
+  --tertiary-color: #ffb819;
+  --common-text-color: black;
+  --common-background-color: white;
+  --form-error-color: #ff0202;
+  --standard-font-size: 16px;
+  --border-radius: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-error > .form-input,
+.form-error > .form-label,
+.form-error > .form-label-info {
+  color: var(--form-error-color) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-error > .form-input {
+  border-color: var(--form-error-color) !important;
 }

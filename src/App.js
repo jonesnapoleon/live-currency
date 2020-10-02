@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { CurrencyProvider } from "./context/CurrencyContext";
+import { PriceProvider } from "./context/PriceContext";
+import { AlertProvider } from "./context/AlertContext";
+import Landing from "./pages/Landing";
+import LargeScreen from "./pages/LargeScreen";
+import { useIsMobile } from "./utils/hooks";
+import "./App.css";
 
-function App() {
+const App = () => {
+  const isMobile = useIsMobile();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AlertProvider>
+      <PriceProvider>
+        <CurrencyProvider>
+          {isMobile ? <Landing /> : <LargeScreen />}
+        </CurrencyProvider>
+      </PriceProvider>
+    </AlertProvider>
   );
-}
+};
 
 export default App;

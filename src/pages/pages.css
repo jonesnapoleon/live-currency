@@ -1,0 +1,15 @@
+#large-screen {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  color: var(--common-background-color);
+}
+
+#large-screen h1 {
+  text-align: center;
+  padding-top: 25vh;
+}
+
+#full-page {
+  min-height: 100vh;
+  padding: 20px;
+}

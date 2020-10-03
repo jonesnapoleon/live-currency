@@ -13,7 +13,7 @@ export default ({ currencyKeys }) => {
 
   return (
     <div id="header">
-      <h5>{getCountry(chosenCurrency.value)}</h5>
+      <h5>{getCountry(chosenCurrency?.value)}</h5>
       <div className="row space-between mt-2">
         <section style={{ flex: 1 }}>
           <Select data={chosenCurrency} optionList={currencyKeys} />

@@ -10,24 +10,24 @@ export default ({ label, data, type, extraClassName }) => {
 
   return (
     <span
-      className={`form-area ${extraClassName ?? ""} ${data.errorClassName}`}
+      className={`form-area ${extraClassName ?? ""} ${data?.errorClassName}`}
     >
       <input
         id={label}
         required
         style={{
           textAlign: "right",
-          width: `${String(data.value).length}rem`,
+          width: `${String(data?.value).length}rem`,
         }}
         className="form-input"
-        value={data.value}
+        value={data?.value}
         type={type ?? "text"}
         inputMode={type === "number" ? "numeric" : "text"}
         onChange={handleMaxLength}
         placeholder={label}
       />
       <span className="form-label-info">
-        <div className="form-message-wrapper">{data.message}</div>
+        <div className="form-message-wrapper">{data?.message}</div>
       </span>
     </span>
   );

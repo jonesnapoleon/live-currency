@@ -8,8 +8,10 @@ const FormSelect = ({
   extraClassName,
 }) => {
   return (
-    <div className={`form-area ${extraClassName ?? ""} ${data.errorClassName}`}>
-      <select value={data.value} onChange={data.onChange}>
+    <div
+      className={`form-area ${extraClassName ?? ""} ${data?.errorClassName}`}
+    >
+      <select value={data?.value} onChange={data?.onChange}>
         <option value={defaultValue} defaultValue={defaultValue}>
           {defaultValue}
         </option>
@@ -23,7 +25,7 @@ const FormSelect = ({
       </select>
       <span className="form-select-label">{label}</span>
       <span className="form-label-info">
-        <div className="form-message-wrapper">{data.message}</div>
+        <div className="form-message-wrapper">{data?.message}</div>
       </span>
     </div>
   );

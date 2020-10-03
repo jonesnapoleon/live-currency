@@ -9,6 +9,7 @@ const htmlText = {
   currencyNotAvailable: "No currency selected",
   currencyAlreadyRetrieved: "Currency listed",
   currencyAdded: "Currency added!",
+  moreCurrency: "More currency",
 };
 
 export default ({ currencyKeys }) => {
@@ -36,7 +37,7 @@ export default ({ currencyKeys }) => {
           <Select
             data={newCurrency}
             optionList={currencyKeys}
-            defaultValue={"Add more currency"}
+            defaultValue={htmlText.moreCurrency}
           />
         </section>
         <section style={{ flex: 2 }} className="text-right align-right">

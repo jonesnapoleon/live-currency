@@ -27,23 +27,25 @@ export const getCountry = (string) =>
   string in COUNTRY ? `${string} - ${COUNTRY[string]}` : "International";
 
 export const getConversionValue = (data, currencyTarget, currencyBase) => {
-  return (data[currencyTarget] / data[currencyBase]).toFixed(2);
+  return data[currencyTarget] / data[currencyBase];
 };
 
 export const getConvertedPrice = (conversionValue, price) => {
   if (!price.isSubmittable || price.value === "") return "-";
-  return (parseInt(price.value) * conversionValue).toFixed(2);
+  return parseInt(price.value) * conversionValue;
 };
 
 export const formatMoney = (string) => {
-  if (string.includes("-")) return string;
-  if (string === "") return "0.00";
-  const text = String(string.trim()).split(".");
+  if (String(string).includes("-")) return string;
+  if (String(string) === "") return "0.00";
+  const text = String(string).trim().split(".");
 
   let tempNumber = "";
   for (let i = text[0].length - 1; i >= 0; i--) {
     tempNumber += text[0][i];
     if ((text[0].length - i) % 3 === 0 && i !== 0) tempNumber += ",";
   }
-  return tempNumber.split("").reverse().join("") + "." + text[1];
+  return (
+    tempNumber.split("").reverse().join("") + "." + text[1].substring(0, 4)
+  );
 };

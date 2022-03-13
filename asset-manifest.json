@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/live-currency/static/css/main.5f9f3891.chunk.css",
+    "main.js": "/live-currency/static/js/main.36748fc8.chunk.js",
+    "runtime-main.js": "/live-currency/static/js/runtime-main.33a55b61.js",
+    "static/js/2.2ee640a6.chunk.js": "/live-currency/static/js/2.2ee640a6.chunk.js",
+    "index.html": "/live-currency/index.html",
+    "precache-manifest.a1fb10ff93783995a91ef31757d6967a.js": "/live-currency/precache-manifest.a1fb10ff93783995a91ef31757d6967a.js",
+    "service-worker.js": "/live-currency/service-worker.js",
+    "static/js/2.2ee640a6.chunk.js.LICENSE.txt": "/live-currency/static/js/2.2ee640a6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.33a55b61.js",
+    "static/js/2.2ee640a6.chunk.js",
+    "static/css/main.5f9f3891.chunk.css",
+    "static/js/main.36748fc8.chunk.js"
+  ]
+}

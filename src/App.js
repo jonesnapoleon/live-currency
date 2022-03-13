@@ -15,7 +15,7 @@ const App = () => {
       debug: true,
       titleCase: true,
     });
-  });
+  }, []);
 
   return (
     <AlertProvider>

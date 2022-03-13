@@ -1,12 +1,12 @@
-export const BREAKPOINT_WIDTH = 767;
+export const BREAKPOINT_WIDTH = 850;
 
-export const LATEST_CURRENCY_API_URL = "https://api.exchangeratesapi.io/latest";
+export const LATEST_CURRENCY_API_URL = `http://api.exchangeratesapi.io/latest?access_key=${process.env.REACT_APP_API_ACCESS_KEY}`;
 export const MAX_DIGIT_VALUE = 8;
-export const DEFAULT_CURRENCY = "USD";
+export const DEFAULT_CURRENCY = "IDR";
 
 export const COUNTRY = {
-  USD: "United States Dollar",
   IDR: "Indonesian Rupiah",
+  USD: "United States Dollar",
   EUR: "Euro",
   CAD: "Canadian Dollar",
   SGD: "Singapore Dollar",

@@ -17,7 +17,7 @@ export const isPriceValid = (string) => {
   return parseInt(text) >= 0 && count <= 1;
 };
 
-export const isMaxMillion = (string) => string.trim().length < 8;
+export const isMaxMillion = (string) => string.trim().length < 11;
 
 export const getKeys = (object) => {
   return object ? Object.keys(object) : {};
@@ -45,7 +45,7 @@ export const formatMoney = (string) => {
     tempNumber += text[0][i];
     if ((text[0].length - i) % 3 === 0 && i !== 0) tempNumber += ",";
   }
-  return (
-    tempNumber.split("").reverse().join("") + "." + text[1].substring(0, 4)
-  );
+  let result = tempNumber?.split("").reverse().join("");
+  if (text[1]) result += "." + text[1]?.substring(0, 4);
+  return result;
 };

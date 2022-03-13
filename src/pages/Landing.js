@@ -8,9 +8,10 @@ import "./pages.css";
 
 export default () => {
   const currencyData = useContext(CurrencyContext);
-  const currencyKeys = useMemo(() => getKeys(currencyData?.rates), [
-    currencyData,
-  ]);
+  const currencyKeys = useMemo(
+    () => getKeys(currencyData?.rates),
+    [currencyData]
+  );
 
   return (
     <div id="full-page">

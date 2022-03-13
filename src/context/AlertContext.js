@@ -8,17 +8,17 @@ export const AlertProvider = ({ children }) => {
     show: false,
   });
 
-  const removeAlert = () => setAlert({ show: false });
+  const removeAlert = useCallback(() => setAlert({ show: false }), []);
 
-  const addAlert = (message, type) => {
+  const addAlert = useCallback((message, type) => {
     setAlert({ show: true, message, type });
     setTimeout(() => setAlert({ show: false }), 3000);
-  };
+  }, []);
 
   const alertContextValue = {
     alert,
-    addAlert: useCallback((message, type) => addAlert(message, type), []),
-    removeAlert: useCallback(() => removeAlert(), []),
+    addAlert: (message, type) => addAlert(message, type),
+    removeAlert: removeAlert,
   };
 
   return (

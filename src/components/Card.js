@@ -11,9 +11,8 @@ import {
 
 export default ({ currency }) => {
   const { chosenCurrency, price } = useContext(PriceContext);
-  const { rates, listedCurrency, setListedCurrency } = useContext(
-    CurrencyContext
-  );
+  const { rates, listedCurrency, setListedCurrency } =
+    useContext(CurrencyContext);
   const country = getCountry(currency);
   const conversionValue = useMemo(
     () => getConversionValue(rates, currency, chosenCurrency.value),

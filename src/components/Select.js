@@ -5,12 +5,10 @@ const FormSelect = ({
   data,
   optionList,
   defaultValue,
-  extraClassName,
+  extraClassName = "",
 }) => {
   return (
-    <div
-      className={`form-area ${extraClassName ?? ""} ${data?.errorClassName}`}
-    >
+    <div className={`form-area ${extraClassName} ${data?.errorClassName}`}>
       <select value={data?.value} onChange={data?.onChange}>
         <option value={defaultValue} defaultValue={defaultValue}>
           {defaultValue}

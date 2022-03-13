@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { BREAKPOINT_WIDTH, LATEST_CURRENCY_API_URL } from "./constant";
+import axios from "axios";
 
 export const useFormInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
@@ -52,19 +53,14 @@ export const useValidationFormInput = (
   };
 };
 
-const useWidth = () => {
+export const useWidth = () => {
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [width]);
-  return width;
-};
-
-export const useIsMobile = () => {
-  const width = useWidth();
-  return width < BREAKPOINT_WIDTH;
+  return { width, isMobile: width < BREAKPOINT_WIDTH };
 };
 
 export const useLocalStorage = (key, defaultValue) => {
@@ -78,7 +74,7 @@ export const useLocalStorage = (key, defaultValue) => {
   return [value, setValueInLocalStorage];
 };
 
-export const useFetch = (url = LATEST_CURRENCY_API_URL, method = "get") => {
+export const useFetch = (shouldFetch = true, url = LATEST_CURRENCY_API_URL) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -86,18 +82,18 @@ export const useFetch = (url = LATEST_CURRENCY_API_URL, method = "get") => {
   const doFetch = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch(url, { method });
-      const json = await res.json();
-      setData(json);
+      const res = await axios.get(url);
+      if (res?.data?.error?.code) throw new Error(res?.data?.error?.info);
+      setData(res?.data);
     } catch (e) {
-      setError(e);
+      setError(e?.message);
     } finally {
       setLoading(false);
     }
-  }, [method, url]);
+  }, [url]);
 
   useEffect(() => {
-    doFetch();
-  }, [doFetch]);
+    shouldFetch && doFetch();
+  }, [doFetch, shouldFetch]);
   return { data, error, loading };
 };

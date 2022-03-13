@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CurrencyProvider } from "./context/CurrencyContext";
 import { PriceProvider } from "./context/PriceContext";
 import { AlertProvider } from "./context/AlertContext";
@@ -10,13 +10,13 @@ import "./App.css";
 
 const App = () => {
   const { isMobile } = useWidth();
-  ReactGA.initialize("G-TBFW4LY2KP", {
-    debug: true,
-    titleCase: false,
-    gaOptions: {
-      userId: 123,
-    },
+  useEffect(() => {
+    ReactGA.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_ID, {
+      debug: true,
+      titleCase: true,
+    });
   });
+
   return (
     <AlertProvider>
       <PriceProvider>
